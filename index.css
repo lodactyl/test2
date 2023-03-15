@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: sans-serif;
+}
+
+.app {
+
+  width: 70%;
+  height: 60%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.1fr;
+
+  grid-template-areas:
+    "list winner"
+    "buttons winner"
+  ;
+
+  border-radius: 1vmin;
+  overflow: hidden;
+}
+
+.list-wrapper {
+  grid-area: list;
+
+  overflow: hidden;
+  background-color: #ffc8dd;
+}
+
+.list {
+  display: flex;
+  height: max-content;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.item {
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-content {
+  font-size: 2vmin;
+  transition: transform 0.3s;
+  will-change: transform;
+}
+
+.candidate .item-content {
+  transform: scale(2);
+}
+
+.winner-container {
+  grid-area: winner;
+  background-color: #bde0fe;
+
+  display: grid;
+  gap: 2vmin;
+
+  justify-content: center;
+  align-content: center;
+
+  padding: 10%;
+}
+
+.winner-name {
+  font-size: 3vmin;
+  text-align: center;
+}
+
+.winner-description {
+  font-size: 1.5vmin;
+  text-align: center;
+}
+
+.buttons {
+  grid-area: buttons;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.start, .file-label {
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.8vmin;
+  font-weight: bold;
+
+  text-transform: uppercase;
+  background-color: #ffafcc;
+
+  border: none;
+  outline: none;
+
+  transition: background-color 0.3s;
+}
+
+.start {
+  border-right: 0.1vmin solid #eaeaea;
+}
+
+.spinning .start,
+.spinning .file-label {
+  background-color: #eaeaea;
+}
+
+.start.disabled {
+  background-color: #eaeaea;
+  pointer-events: none;
+}
+
+.file {
+  display: none;
+}
